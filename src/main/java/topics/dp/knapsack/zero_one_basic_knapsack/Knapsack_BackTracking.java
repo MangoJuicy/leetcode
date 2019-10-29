@@ -5,6 +5,7 @@ import java.util.List;
 
 // 求取所有可能组合使用 BackTracking
 public class Knapsack_BackTracking {
+
   public static int[] weights = {2, 3, 1, 4};
   public static int[] profits = {4, 5, 3, 7};
 
@@ -27,6 +28,8 @@ public class Knapsack_BackTracking {
       return;
     }
 
+    // TODO: 这个题解好像不对
+    // int i = 0; 需要一个额外的空间来记录是否已经访问该node
     for (int i = index; i < weights.length; i++) {
       if (weights[i] <= capacity) {
         indices.add(i);

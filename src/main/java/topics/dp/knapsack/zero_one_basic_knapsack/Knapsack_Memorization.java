@@ -1,6 +1,7 @@
 package topics.dp.knapsack.zero_one_basic_knapsack;
 
 public class Knapsack_Memorization {
+
   public int getMaxProfit(int[] weights, int[] profits, int capacity) {
     Integer[][] dp = new Integer[weights.length][capacity + 1];
     return recursiveWithMemorization(capacity, 0, weights, profits, dp);

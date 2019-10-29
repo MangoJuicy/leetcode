@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BackTrackingSolution {
+
   public List<List<String>> wordSquares(String[] words) {
     List<List<String>> res = new ArrayList<>();
     backtracking(0, words, new ArrayList<String>(), res);

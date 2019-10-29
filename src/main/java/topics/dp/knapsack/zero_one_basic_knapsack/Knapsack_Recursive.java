@@ -1,6 +1,7 @@
 package topics.dp.knapsack.zero_one_basic_knapsack;
 
 public class Knapsack_Recursive {
+
   public int getMaxProfit(int[] weights, int[] profits, int capacity) {
     return recursive(weights, profits, capacity, 0);
   }
