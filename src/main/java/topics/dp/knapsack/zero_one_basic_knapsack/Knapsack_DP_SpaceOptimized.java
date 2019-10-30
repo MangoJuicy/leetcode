@@ -2,8 +2,26 @@ package topics.dp.knapsack.zero_one_basic_knapsack;
 
 public class Knapsack_DP_SpaceOptimized {
 
-  // TODO: 自己写一遍
-  static int solveKnapsack(int[] profits, int[] weights, int capacity) {
+  public int getMaxProfit(int[] weights, int[] profits, int capacity) {
+    int[][] dp = new int[2][capacity + 1];
+
+    for (int row = 1; row <= weights.length; row++) {
+      for (int col = 1; col <= capacity; col++) {
+        int currRow = row % 2;
+        int lastRow = (row - 1) % 2;
+
+        int profit0 = dp[lastRow][col];
+        int profit1 = (weights[row - 1] <= col) ? (profits[row - 1] + dp[lastRow][col - weights[row - 1]]) : 0;
+        dp[currRow][col] = Math.max(profit0, profit1);
+      }
+    }
+
+    return dp[weights.length % 2][capacity];
+  }
+
+
+  // Educative Solution
+  public int solveKnapsack(int[] profits, int[] weights, int capacity) {
     // basic checks
     if (capacity <= 0 || profits.length == 0 || weights.length != profits.length)
       return 0;
@@ -35,6 +53,17 @@ public class Knapsack_DP_SpaceOptimized {
     }
 
     return dp[(n-1)%2][capacity];
+  }
+
+
+  public static void main(String[] args) {
+    Knapsack_DP_SpaceOptimized ks = new Knapsack_DP_SpaceOptimized();
+    int[] profits = {1, 6, 10, 16};
+    int[] weights = {1, 2, 3, 5};
+    int maxProfit = ks.getMaxProfit(weights, profits, 7);
+    System.out.println("Total knapsack profit ---> " + maxProfit);
+    maxProfit = ks.getMaxProfit(weights, profits, 6);
+    System.out.println("Total knapsack profit ---> " + maxProfit);
   }
 }
 

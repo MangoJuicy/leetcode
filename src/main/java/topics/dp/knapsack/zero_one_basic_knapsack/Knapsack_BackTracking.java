@@ -28,15 +28,13 @@ public class Knapsack_BackTracking {
       return;
     }
 
-    // TODO: 这个题解好像不对
-    // int i = 0; 需要一个额外的空间来记录是否已经访问该node
+    res.set(0, Math.max(res.get(0), profitSoFar));
+
     for (int i = index; i < weights.length; i++) {
       if (weights[i] <= capacity) {
         indices.add(i);
         backtracking(capacity - weights[i], i + 1, profitSoFar + profits[i], res, indices);
         indices.removeLast();
-      } else {
-        res.set(0, Math.max(res.get(0), profitSoFar));
       }
     }
   }
