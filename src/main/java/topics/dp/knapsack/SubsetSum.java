@@ -8,7 +8,9 @@ public class SubsetSum {
   public boolean canGenerateSum(int[] num, int sum) {
     boolean[][] dp = new boolean[2][sum + 1];
 
+    // initialize first column as true, first row as false.
     dp[0][0] = true;
+    dp[1][0] = true;
 
     for (int row = 1; row <= num.length; row++) {
       for (int col = 1; col <= sum; col++) {

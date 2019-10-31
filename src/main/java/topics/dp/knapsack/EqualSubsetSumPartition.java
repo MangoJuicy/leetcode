@@ -15,6 +15,7 @@ public class EqualSubsetSumPartition {
 
       // initialize first column as true and first row as false
       dp[0][0] = true;
+      dp[1][0] = true;  // fixed bug: missed this line
 
       for (int row = 1; row <= num.length; row++) {
         for (int col = 1; col <= targetSum; col++) {
