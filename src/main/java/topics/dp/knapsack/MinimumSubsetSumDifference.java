@@ -1,10 +1,12 @@
 package topics.dp.knapsack;
 
+import utils.Utils;
+
 public class MinimumSubsetSumDifference {
 
   public int getMinimumSubsetSumDifference(int[] num) {
     int minimumDiff = Integer.MAX_VALUE;
-    int sum = calculateSum(num);
+    int sum = Utils.calculateSum(num);
     int targetSum = sum / 2;
 
     boolean[][] dp = new boolean[2][targetSum + 1];
@@ -35,14 +37,6 @@ public class MinimumSubsetSumDifference {
     }
 
     return minimumDiff;
-  }
-
-  private int calculateSum(int[] num) {
-    int sum = 0;
-    for(int i = 0; i < num.length; i++) {
-      sum += num[i];
-    }
-    return sum;
   }
 
   public static void main(String[] args) {

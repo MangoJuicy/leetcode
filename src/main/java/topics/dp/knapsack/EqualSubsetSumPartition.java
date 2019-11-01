@@ -1,12 +1,14 @@
 package topics.dp.knapsack;
 
+import utils.Utils;
+
 public class EqualSubsetSumPartition {
 
   /* ================  DP Bottom Up With Space Optimized ================== */
   public static class DPBottomUpWithSpaceOptimized {
 
     public boolean canPartition(int[] num) {
-      int sum = calculateSum(num);
+      int sum = Utils.calculateSum(num);
       if (sum % 2 != 0) {
         return false;
       }
@@ -39,7 +41,7 @@ public class EqualSubsetSumPartition {
   public static class DPBottomUpSolution {
 
     public boolean canPartition(int[] num) {
-      int sum = calculateSum(num);
+      int sum = Utils.calculateSum(num);
       if (sum % 2 != 0) {
         return false;
       }
@@ -71,7 +73,7 @@ public class EqualSubsetSumPartition {
 
     public boolean canPartition(int[] num) {
 
-      int sum = calculateSum(num);
+      int sum = Utils.calculateSum(num);
       if (sum % 2 != 0) {
         return false;
       }
@@ -115,7 +117,7 @@ public class EqualSubsetSumPartition {
 
     public boolean canPartition(int[] num) {
 
-      int sum = calculateSum(num);
+      int sum = Utils.calculateSum(num);
       if (sum % 2 != 0) {
         return false;
       }
@@ -141,16 +143,6 @@ public class EqualSubsetSumPartition {
     }
   }
 
-
-  private static int calculateSum(int[] num) {
-
-    int sum = 0;
-    for (int i = 0; i < num.length; i++) {
-      sum += num[i];
-    }
-
-    return sum;
-  }
 
   public static void main(String[] args) {
     testRecursionSolution();
