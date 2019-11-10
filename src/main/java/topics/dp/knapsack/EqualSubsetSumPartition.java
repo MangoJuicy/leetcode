@@ -152,7 +152,7 @@ public class EqualSubsetSumPartition {
         return true;
       }
       if (index == num.length) {
-        //        dp[index][targetSum] = Boolean.FALSE; // bug was caught here. 当 index 为
+        // dp[index][targetSum] = Boolean.FALSE; // bug was caught here. 当 index 为
         // num.length, 不应该对dp赋值
         return false;
       }

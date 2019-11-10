@@ -2,6 +2,7 @@ package topics.scan_line;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
+import topics.scan_line.model.Interval;
 
 public class LC_855_exam_room {
 
@@ -61,15 +62,5 @@ public class LC_855_exam_room {
       return interval.end - interval.start - 1;
     }
     return (interval.end - interval.start) / 2;
-  }
-
-  private static class Interval {
-    int start;
-    int end;
-
-    public Interval(int start, int end) {
-      this.start = start;
-      this.end = end;
-    }
   }
 }

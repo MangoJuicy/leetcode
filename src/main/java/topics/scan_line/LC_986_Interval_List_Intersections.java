@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import topics.scan_line.model.Interval;
 
 public class LC_986_Interval_List_Intersections {
 
@@ -62,16 +63,6 @@ public class LC_986_Interval_List_Intersections {
     public enum Group {
       A,
       B
-    }
-  }
-
-  private static class Interval {
-    int start;
-    int end;
-
-    public Interval(int start, int end) {
-      this.start = start;
-      this.end = end;
     }
   }
 }
