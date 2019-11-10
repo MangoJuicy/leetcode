@@ -10,14 +10,15 @@ public class LC_855_exam_room {
 
   public LC_855_exam_room(int N) {
     seatsNum = N;
-    Comparator<Interval> comparator = (one, other) -> {
-      int oneMaxDistance = getMaxDistanceOfInterval(one);
-      int otherMaxDistance = getMaxDistanceOfInterval(other);
-      if (oneMaxDistance != otherMaxDistance) {
-        return otherMaxDistance - oneMaxDistance;
-      }
-      return one.start - other.start;
-    };
+    Comparator<Interval> comparator =
+        (one, other) -> {
+          int oneMaxDistance = getMaxDistanceOfInterval(one);
+          int otherMaxDistance = getMaxDistanceOfInterval(other);
+          if (oneMaxDistance != otherMaxDistance) {
+            return otherMaxDistance - oneMaxDistance;
+          }
+          return one.start - other.start;
+        };
     maxHeap = new PriorityQueue<>(comparator);
     maxHeap.add(new Interval(-1, N));
   }
@@ -43,7 +44,7 @@ public class LC_855_exam_room {
   public void leave(int p) {
     Interval first = null;
     Interval second = null;
-    for (Interval interval: maxHeap) {
+    for (Interval interval : maxHeap) {
       if (interval.end == p) {
         first = interval;
       } else if (interval.start == p) {
@@ -70,15 +71,5 @@ public class LC_855_exam_room {
       this.start = start;
       this.end = end;
     }
-  }
-
-  public static void main(String[] args) {
-    LC_855_exam_room examRoom = new LC_855_exam_room(10);
-    System.out.println(examRoom.seat());
-    System.out.println(examRoom.seat());
-    System.out.println(examRoom.seat());
-    System.out.println(examRoom.seat());
-    examRoom.leave(4);
-    System.out.println(examRoom.seat());
   }
 }

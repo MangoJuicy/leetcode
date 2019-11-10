@@ -5,6 +5,16 @@ public class SubsetSum {
   // dp[row][col] = dp[row - 1][col]
   //                || ((num[row - 1] <= col) && dp[row - 1][col - num[row - 1]])
 
+  public static void main(String[] args) {
+    SubsetSum ss = new SubsetSum();
+    int[] num = {1, 2, 3, 7};
+    System.out.println(ss.canGenerateSum(num, 6));
+    num = new int[] {1, 2, 7, 1, 5};
+    System.out.println(ss.canGenerateSum(num, 10));
+    num = new int[] {1, 3, 4, 8};
+    System.out.println(ss.canGenerateSum(num, 6));
+  }
+
   public boolean canGenerateSum(int[] num, int sum) {
     boolean[][] dp = new boolean[2][sum + 1];
 
@@ -24,15 +34,5 @@ public class SubsetSum {
     }
 
     return dp[num.length % 2][sum];
-  }
-
-  public static void main(String[] args) {
-    SubsetSum ss = new SubsetSum();
-    int[] num = { 1, 2, 3, 7 };
-    System.out.println(ss.canGenerateSum(num, 6));
-    num = new int[] { 1, 2, 7, 1, 5 };
-    System.out.println(ss.canGenerateSum(num, 10));
-    num = new int[] { 1, 3, 4, 8 };
-    System.out.println(ss.canGenerateSum(num, 6));
   }
 }

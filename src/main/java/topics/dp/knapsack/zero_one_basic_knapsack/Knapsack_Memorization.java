@@ -7,7 +7,8 @@ public class Knapsack_Memorization {
     return recursiveWithMemorization(capacity, 0, weights, profits, dp);
   }
 
-  private int recursiveWithMemorization(int capacity, int index, int[] weights, int[] profits, Integer[][] dp) {
+  private int recursiveWithMemorization(
+      int capacity, int index, int[] weights, int[] profits, Integer[][] dp) {
     if (capacity == 0 || index == weights.length) {
       return 0;
     }
@@ -22,7 +23,10 @@ public class Knapsack_Memorization {
     // 1 case
     int profit1 = 0;
     if (weights[index] <= capacity) {
-      profit1 = profits[index] + recursiveWithMemorization(capacity - weights[index], index + 1, weights, profits, dp);
+      profit1 =
+          profits[index]
+              + recursiveWithMemorization(
+                  capacity - weights[index], index + 1, weights, profits, dp);
     }
 
     dp[index][capacity] = Math.max(profit0, profit1);

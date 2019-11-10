@@ -1,16 +1,25 @@
 package topics.dp.knapsack.zero_one_basic_knapsack;
 
-
 import java.util.LinkedList;
 import java.util.List;
 
 public class Knapsack_DP {
 
   /*
-    dp 数据结构： new int[items.size + 1][capacity + 1]
-    dp 递推公式：dp[i][c] = Math.max(dp[i - 1][c],
-                                               (w[i - 1] <= c) ? (p[i - 1] + dp[i - 1][c - w[i - 1]]) : 0)
-   */
+   dp 数据结构： new int[items.size + 1][capacity + 1]
+   dp 递推公式：dp[i][c] = Math.max(dp[i - 1][c],
+                                              (w[i - 1] <= c) ? (p[i - 1] + dp[i - 1][c - w[i - 1]]) : 0)
+  */
+
+  public static void main(String[] args) {
+    Knapsack_DP ks = new Knapsack_DP();
+    int[] profits = {1, 6, 10, 16};
+    int[] weights = {1, 2, 3, 5};
+    int maxProfit = ks.getMaxProfit(weights, profits, 7);
+    System.out.println("Total knapsack profit ---> " + maxProfit);
+    maxProfit = ks.getMaxProfit(weights, profits, 6);
+    System.out.println("Total knapsack profit ---> " + maxProfit);
+  }
 
   public int getMaxProfit(int[] weights, int[] profits, int capacity) {
     int[][] dp = new int[weights.length + 1][capacity + 1];
@@ -27,7 +36,6 @@ public class Knapsack_DP {
 
     return dp[weights.length][capacity];
   }
-
 
   // 求取 max profit 路径
   private List<Integer> getPathIndices(int[] weights, int[] profits, int[][] dp) {
@@ -47,15 +55,5 @@ public class Knapsack_DP {
     System.out.println(indices);
 
     return indices;
-  }
-
-  public static void main(String[] args) {
-    Knapsack_DP ks = new Knapsack_DP();
-    int[] profits = {1, 6, 10, 16};
-    int[] weights = {1, 2, 3, 5};
-    int maxProfit = ks.getMaxProfit(weights, profits, 7);
-    System.out.println("Total knapsack profit ---> " + maxProfit);
-    maxProfit = ks.getMaxProfit(weights, profits, 6);
-    System.out.println("Total knapsack profit ---> " + maxProfit);
   }
 }

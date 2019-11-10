@@ -4,6 +4,14 @@ import utils.Utils;
 
 public class TargetSum {
 
+  public static void main(String[] args) {
+    TargetSum ts = new TargetSum();
+    int[] num = {1, 1, 2, 3};
+    System.out.println(ts.getNumOfWaysForTargetSum(num, 1));
+    num = new int[] {1, 2, 7, 1};
+    System.out.println(ts.getNumOfWaysForTargetSum(num, 9));
+  }
+
   public int getNumOfWaysForTargetSum(int[] num, int target) {
     int sum = Utils.calculateSum(num);
     if ((sum + target) % 2 != 0 || sum < target) {
@@ -31,13 +39,5 @@ public class TargetSum {
     }
 
     return dp[num.length % 2][subsetSum];
-  }
-
-  public static void main(String[] args) {
-    TargetSum ts = new TargetSum();
-    int[] num = {1, 1, 2, 3};
-    System.out.println(ts.getNumOfWaysForTargetSum(num, 1));
-    num = new int[]{1, 2, 7, 1};
-    System.out.println(ts.getNumOfWaysForTargetSum(num, 9));
   }
 }

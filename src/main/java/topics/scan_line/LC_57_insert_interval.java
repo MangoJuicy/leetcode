@@ -1,8 +1,8 @@
 package topics.scan_line;
 
-import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class LC_57_insert_interval {
 

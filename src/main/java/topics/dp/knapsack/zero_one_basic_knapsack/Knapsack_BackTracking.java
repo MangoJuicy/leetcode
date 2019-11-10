@@ -11,6 +11,7 @@ public class Knapsack_BackTracking {
 
   /**
    * get max profits with given capacity. capacity >= 0;
+   *
    * @param capacity
    * @return
    */
@@ -22,7 +23,8 @@ public class Knapsack_BackTracking {
     return res.get(0);
   }
 
-  private static void backtracking(int capacity, int index, int profitSoFar, List<Integer> res, LinkedList<Integer> indices) {
+  private static void backtracking(
+      int capacity, int index, int profitSoFar, List<Integer> res, LinkedList<Integer> indices) {
     if (capacity == 0 || index == weights.length) {
       res.set(0, Math.max(res.get(0), profitSoFar));
       return;

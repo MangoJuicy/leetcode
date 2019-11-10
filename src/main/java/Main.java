@@ -3,12 +3,12 @@ import oracle.lc425.BackTrackingSolution;
 
 public class Main {
   public static void main(String[] args) {
-    String[] words = {"abat","baba","atan","atal"};
+    String[] words = {"abat", "baba", "atan", "atal"};
     BackTrackingSolution lc425BackTracking = new BackTrackingSolution();
     List<List<String>> res = lc425BackTracking.wordSquares(words);
 
-    for (List<String> list: res) {
-      for (String str: list) {
+    for (List<String> list : res) {
+      for (String str : list) {
         System.out.print(str);
       }
       System.out.println();

@@ -4,6 +4,69 @@ import utils.Utils;
 
 public class EqualSubsetSumPartition {
 
+  public static void main(String[] args) {
+    testRecursionSolution();
+    testRecursionWithMemorizationSolution();
+    testDPBottomUpSolution();
+    testDPBottomUpWithSpaceOptimized();
+  }
+
+  private static void testRecursionSolution() {
+
+    RecursionSolution ps = new RecursionSolution();
+    System.out.println("RecursionSolution: ");
+    int[] num = new int[] {1, 2, 3, 4};
+    System.out.println(ps.canPartition(num));
+    num = new int[] {1, 1, 3, 4, 7};
+    System.out.println(ps.canPartition(num));
+    num = new int[] {2, 3, 4, 6};
+    System.out.println(ps.canPartition(num));
+
+    System.out.println("\n\n");
+  }
+
+  private static void testRecursionWithMemorizationSolution() {
+
+    RecursionWithMemorizationSolution ps = new RecursionWithMemorizationSolution();
+    System.out.println("RecursionWithMemorizationSolution: ");
+    int[] num = new int[] {1, 2, 3, 4};
+    System.out.println(ps.canPartition(num));
+    num = new int[] {1, 1, 3, 4, 7};
+    System.out.println(ps.canPartition(num));
+    num = new int[] {2, 3, 4, 6};
+    System.out.println(ps.canPartition(num));
+
+    System.out.println("\n\n");
+  }
+
+  private static void testDPBottomUpSolution() {
+
+    DPBottomUpSolution ps = new DPBottomUpSolution();
+    System.out.println("DPBottomUpSolution: ");
+    int[] num = new int[] {1, 2, 3, 4};
+    System.out.println(ps.canPartition(num));
+    num = new int[] {1, 1, 3, 4, 7};
+    System.out.println(ps.canPartition(num));
+    num = new int[] {2, 3, 4, 6};
+    System.out.println(ps.canPartition(num));
+
+    System.out.println("\n\n");
+  }
+
+  private static void testDPBottomUpWithSpaceOptimized() {
+
+    DPBottomUpWithSpaceOptimized ps = new DPBottomUpWithSpaceOptimized();
+    System.out.println("DPBottomUpWithSpaceOptimized: ");
+    int[] num = new int[] {1, 2, 3, 4};
+    System.out.println(ps.canPartition(num));
+    num = new int[] {1, 1, 3, 4, 7};
+    System.out.println(ps.canPartition(num));
+    num = new int[] {2, 3, 4, 6};
+    System.out.println(ps.canPartition(num));
+
+    System.out.println("\n\n");
+  }
+
   /* ================  DP Bottom Up With Space Optimized ================== */
   public static class DPBottomUpWithSpaceOptimized {
 
@@ -17,7 +80,7 @@ public class EqualSubsetSumPartition {
 
       // initialize first column as true and first row as false
       dp[0][0] = true;
-      dp[1][0] = true;  // fixed bug: missed this line
+      dp[1][0] = true; // fixed bug: missed this line
 
       for (int row = 1; row <= num.length; row++) {
         for (int col = 1; col <= targetSum; col++) {
@@ -89,7 +152,8 @@ public class EqualSubsetSumPartition {
         return true;
       }
       if (index == num.length) {
-//        dp[index][targetSum] = Boolean.FALSE; // bug was caught here. 当 index 为 num.length, 不应该对dp赋值
+        //        dp[index][targetSum] = Boolean.FALSE; // bug was caught here. 当 index 为
+        // num.length, 不应该对dp赋值
         return false;
       }
 
@@ -100,7 +164,8 @@ public class EqualSubsetSumPartition {
       }
 
       // case 1
-      if (num[index] <= targetSum && recursionWithMemorization(num, dp, index + 1, targetSum - num[index])) {
+      if (num[index] <= targetSum
+          && recursionWithMemorization(num, dp, index + 1, targetSum - num[index])) {
         dp[index][targetSum] = Boolean.TRUE;
         return true;
       }
@@ -110,7 +175,6 @@ public class EqualSubsetSumPartition {
       return dp[index][targetSum];
     }
   }
-
 
   /* ================ Recursive Solution ================ */
   public static class RecursionSolution {
@@ -141,69 +205,5 @@ public class EqualSubsetSumPartition {
       // case 0
       return recursive(num, index + 1, targetSum);
     }
-  }
-
-
-  public static void main(String[] args) {
-    testRecursionSolution();
-    testRecursionWithMemorizationSolution();
-    testDPBottomUpSolution();
-    testDPBottomUpWithSpaceOptimized();
-  }
-
-  private static void testRecursionSolution() {
-
-    RecursionSolution ps = new RecursionSolution();
-    System.out.println("RecursionSolution: ");
-    int[] num = new int[]{1, 2, 3, 4};
-    System.out.println(ps.canPartition(num));
-    num = new int[]{1, 1, 3, 4, 7};
-    System.out.println(ps.canPartition(num));
-    num = new int[]{2, 3, 4, 6};
-    System.out.println(ps.canPartition(num));
-
-    System.out.println("\n\n");
-  }
-
-  private static void testRecursionWithMemorizationSolution() {
-
-    RecursionWithMemorizationSolution ps = new RecursionWithMemorizationSolution();
-    System.out.println("RecursionWithMemorizationSolution: ");
-    int[] num = new int[]{1, 2, 3, 4};
-    System.out.println(ps.canPartition(num));
-    num = new int[]{1, 1, 3, 4, 7};
-    System.out.println(ps.canPartition(num));
-    num = new int[]{2, 3, 4, 6};
-    System.out.println(ps.canPartition(num));
-
-    System.out.println("\n\n");
-  }
-
-  private static void testDPBottomUpSolution() {
-
-    DPBottomUpSolution ps = new DPBottomUpSolution();
-    System.out.println("DPBottomUpSolution: ");
-    int[] num = new int[]{1, 2, 3, 4};
-    System.out.println(ps.canPartition(num));
-    num = new int[]{1, 1, 3, 4, 7};
-    System.out.println(ps.canPartition(num));
-    num = new int[]{2, 3, 4, 6};
-    System.out.println(ps.canPartition(num));
-
-    System.out.println("\n\n");
-  }
-
-  private static void testDPBottomUpWithSpaceOptimized() {
-
-    DPBottomUpWithSpaceOptimized ps = new DPBottomUpWithSpaceOptimized();
-    System.out.println("DPBottomUpWithSpaceOptimized: ");
-    int[] num = new int[]{1, 2, 3, 4};
-    System.out.println(ps.canPartition(num));
-    num = new int[]{1, 1, 3, 4, 7};
-    System.out.println(ps.canPartition(num));
-    num = new int[]{2, 3, 4, 6};
-    System.out.println(ps.canPartition(num));
-
-    System.out.println("\n\n");
   }
 }

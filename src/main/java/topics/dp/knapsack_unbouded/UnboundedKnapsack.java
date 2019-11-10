@@ -2,6 +2,18 @@ package topics.dp.knapsack_unbouded;
 
 public class UnboundedKnapsack {
 
+  public static void main(String[] args) {
+    testDPBottomUpSolution();
+  }
+
+  private static void testDPBottomUpSolution() {
+    DPBottomUpSolution ks = new DPBottomUpSolution();
+    int[] profits = {15, 50, 60, 90};
+    int[] weights = {1, 3, 4, 5};
+    System.out.println(ks.getMaxProfit(weights, profits, 8));
+    System.out.println(ks.getMaxProfit(weights, profits, 6));
+  }
+
   static class DPBottomUpSolution {
     public int getMaxProfit(int[] weights, int[] profits, int capacity) {
       // dp[i][j]： 前i种item，在capacity为j的条件下，最大的profit
@@ -22,17 +34,5 @@ public class UnboundedKnapsack {
 
       return dp[weights.length][capacity];
     }
-  }
-
-  public static void main(String[] args) {
-    testDPBottomUpSolution();
-  }
-
-  private static void testDPBottomUpSolution() {
-    DPBottomUpSolution ks = new DPBottomUpSolution();
-    int[] profits = {15, 50, 60, 90};
-    int[] weights = {1, 3, 4, 5};
-    System.out.println(ks.getMaxProfit(weights, profits, 8));
-    System.out.println(ks.getMaxProfit(weights, profits, 6));
   }
 }

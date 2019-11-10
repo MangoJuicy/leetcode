@@ -4,6 +4,16 @@ import utils.Utils;
 
 public class MinimumSubsetSumDifference {
 
+  public static void main(String[] args) {
+    MinimumSubsetSumDifference ps = new MinimumSubsetSumDifference();
+    int[] num = {1, 2, 3, 9};
+    System.out.println(ps.getMinimumSubsetSumDifference(num));
+    num = new int[] {1, 2, 7, 1, 5};
+    System.out.println(ps.getMinimumSubsetSumDifference(num));
+    num = new int[] {1, 3, 100, 4};
+    System.out.println(ps.getMinimumSubsetSumDifference(num));
+  }
+
   public int getMinimumSubsetSumDifference(int[] num) {
     int minimumDiff = Integer.MAX_VALUE;
     int sum = Utils.calculateSum(num);
@@ -37,15 +47,5 @@ public class MinimumSubsetSumDifference {
     }
 
     return minimumDiff;
-  }
-
-  public static void main(String[] args) {
-    MinimumSubsetSumDifference ps = new MinimumSubsetSumDifference();
-    int[] num = {1, 2, 3, 9};
-    System.out.println(ps.getMinimumSubsetSumDifference(num));
-    num = new int[]{1, 2, 7, 1, 5};
-    System.out.println(ps.getMinimumSubsetSumDifference(num));
-    num = new int[]{1, 3, 100, 4};
-    System.out.println(ps.getMinimumSubsetSumDifference(num));
   }
 }
