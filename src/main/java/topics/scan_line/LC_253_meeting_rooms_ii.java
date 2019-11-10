@@ -1,4 +1,4 @@
-package topics.scanline;
+package topics.scan_line;
 
 /* https://leetcode.com/problems/meeting-rooms-ii/ */
 

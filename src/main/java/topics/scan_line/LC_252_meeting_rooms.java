@@ -1,4 +1,4 @@
-package topics.scanline;
+package topics.scan_line;
 
 
 import java.util.Arrays;
