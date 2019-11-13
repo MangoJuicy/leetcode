@@ -1,4 +1,4 @@
-package topics.datas_tructure.design;
+package topics.datas_tructure.algorithm;
 
 
 import java.util.HashMap;
