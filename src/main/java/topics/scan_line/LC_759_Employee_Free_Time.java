@@ -3,7 +3,6 @@ package topics.scan_line;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import topics.scan_line.model.Interval;
 
 public class LC_759_Employee_Free_Time {
 

@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import topics.scan_line.model.Interval;
+import topics.scan_line.Interval;
 
 // ordered, self-balanced tree
 public class TreeMap_Summary {

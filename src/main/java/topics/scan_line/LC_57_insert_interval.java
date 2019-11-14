@@ -3,7 +3,6 @@ package topics.scan_line;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import topics.scan_line.model.Interval;
 
 public class LC_57_insert_interval {
 

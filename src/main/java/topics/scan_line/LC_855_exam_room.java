@@ -2,7 +2,6 @@ package topics.scan_line;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
-import topics.scan_line.model.Interval;
 
 public class LC_855_exam_room {
 

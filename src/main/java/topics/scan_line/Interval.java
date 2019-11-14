@@ -1,4 +1,4 @@
-package topics.scan_line.model;
+package topics.scan_line;
 
 public class Interval {
   public int start;
